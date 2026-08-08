@@ -10,6 +10,7 @@
 
     /* color */
     --text-primary-color: #f0f0f0;
+    --bg-fill-color: rgba(255, 255, 255, 0.747);
 
     /* Padding */
 
@@ -57,7 +58,6 @@ section {
     display: flex;
     /* background-color: rgb(63, 63, 138); */
     gap: var(--space-lg);
-
 }
 
 section .infos {
@@ -78,9 +78,14 @@ section .infos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
+    overflow: hidden;
 }
 
 .block {
     border-right: 1px solid var(--border-primary-color);
     border-bottom: 1px solid var(--border-primary-color);
+    overflow: hidden;
+}
+.fill{
+    background-color: var(--bg-fill-color);
 }
