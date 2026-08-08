@@ -9,7 +9,7 @@ const blocks = []
 const snake = [{
     x: 1, y: 3
 }]
-let direction = "right";
+let direction = "up";
 
 
 for (let row = 0; row < rows; row++) {
@@ -28,9 +28,16 @@ function render() {
 }
 setInterval(() => {
     let head = null;
-    if (direction === "right") {
+    if (direction === "left") {
+        head = { x: snake[0].x, y: snake[0].y - 1 }
+    }else if (direction === "right") {
         head = { x: snake[0].x, y: snake[0].y + 1 }
+    }else if(direction === "down") {
+        head = { x: snake[0].x + 1, y: snake[0].y }
+    }else if(direction === "up") {
+        head = { x: snake[0].x - 1, y: snake[0].y }
     }
+
     snake.forEach(segment => {
         blocks[`${segment.x}-${segment.y}`].classList.remove("fill");
     });
@@ -38,3 +45,20 @@ setInterval(() => {
     snake.pop()
     render()
 }, 400)
+
+// ArrowUp
+// ArrowRight
+// ArrowDown
+// ArrowLeft
+
+addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp") {
+        direction = "up"
+    } else if (event.key === "ArrowDown") {
+        direction = "down"
+    } else if (event.key === "ArrowRight") {
+        direction = "right"
+    } else if (event.key === "ArrowLeft") {
+        direction = "left"
+    }
+})
