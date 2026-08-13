@@ -1,4 +1,8 @@
 const board = document.querySelector(".board");
+const startButton = document.querySelector('.btn-start')
+const modal = document.querySelector(".modal")
+const startGameModal = document.querySelector(".start-game");
+const gameOverModal = document.querySelector(".game-over");
 const blockHeight = 50;
 const blockWidth = 50;
 
@@ -33,8 +37,12 @@ function render() {
         head = { x: snake[0].x - 1, y: snake[0].y }
     }
     if (head.x < 0 || head.x >= rows || head.y < 0 || head.y >= cols) {
-        alert("Game Over");
+        // alert("Game Over");
         clearInterval(intervalId)
+        modal.style.display = "flex";
+        startGameModal.style.display = "none"
+        gameOverModal.style.display = "flex"
+        return;
     }
     if (head.x == food.x && head.y == food.y) {
         blocks[`${food.x}-${food.y}`].classList.remove("food")
@@ -53,10 +61,17 @@ function render() {
         blocks[`${segment.x}-${segment.y}`].classList.add("fill");
     })
 }
-intervalId = setInterval(() => {
+// intervalId = setInterval(() => {
 
-    render()
-}, 400)
+//     render()
+// }, 400)
+startButton.addEventListener("click", () => {
+    modal.style.display = "none"
+    intervalId = setInterval(() => { render() }, 400)
+})
+function restartGmae() {
+
+}
 
 addEventListener("keydown", (event) => {
     if (event.key == "ArrowUp") {

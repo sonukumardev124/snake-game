@@ -114,7 +114,8 @@ section .infos {
     align-items: center;
     justify-content: center;
 }
-.modal .start-game{
+.modal .start-game, 
+.modal .game-over{
     height: 250px;
     width: 350px;
     display: flex;
@@ -122,6 +123,8 @@ section .infos {
     align-items: center;
     justify-content: center;
     gap: var(--space-lg);
-    /* background-color: #0c0c0c;
-    border-radius: var(--border-radius-lg); */
+ 
+}
+.modal .game-over{
+    display: none;
 }
