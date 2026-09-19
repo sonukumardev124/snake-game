@@ -604,8 +604,8 @@ It helps support the project and motivates further development.
 
 # 👨‍💻 Author
 
-### Mandeep
-
+### Sonu
+ 
 Frontend / Full-Stack Developer in progress 🚀
 
 Currently exploring:
